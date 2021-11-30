@@ -7,10 +7,10 @@
     curl_exec(CurlHandle $handle): string|bool -> ejecuta una sesion curl
     curl_close() -> finaliza una sesion curl
 
-    CURLOPT_URL	
+    CURLOPT_URL	(No es necesaria si se ha inicializado con curl_init())
         The URL to fetch. This can also be set when initializing a session with curl_init().
 
-    CURLOPT_RETURNTRANSFER	
+    CURLOPT_RETURNTRANSFER (Devuelve el resultado como string en lugar de mostrarlo directamente)
         true to return the transfer as a string of the return value of curl_exec() instead of outputting it directly.
 
 */
@@ -29,14 +29,30 @@
             curl_setopt($this->curlHandle, CURLOPT_RETURNTRANSFER, true);
             $datos = json_decode(curl_exec($this->curlHandle), true);
             $this->resultados = $datos["results"];
-
+            //var_dump($this->resultados);
         }
+
+
+        public function mostrarPeliculas(){
+            foreach($this->resultados as $pelicula){
+                echo "<div class='film'>";
+                echo "<img src='https://image.tmdb.org/t/p/w185{$pelicula['poster_path']}'>";
+                echo "<p>{$pelicula["original_title"]}</p>";
+                echo "</div>";
+            }
+        }
+
+
+
+
 
     }
 
-    $url_peliculas = "https://api.themoviedb.org/3/discover/movie?api_key=1865f43a0549ca50d341dd9ab8b29f49&language=es";
-    $videoclub = new Videoclub($url_peliculas);
+    //$url_peliculas = "https://api.themoviedb.org/3/discover/movie?api_key=1865f43a0549ca50d341dd9ab8b29f49&language=es";
+    //$videoclub = new Videoclub($url_peliculas);
 
+    //$videoclub->mostrarPeliculas();
+/*
     foreach($videoclub->resultados as $clave => $resultado){
         echo "<div>";
         echo "<img src='https://image.tmdb.org/t/p/w185{$resultado['poster_path']}'>";ñ
@@ -44,7 +60,7 @@
         echo "</div>";
     }
 
-
+*/
 
 
 

@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+
+.film{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 250px;
+    outline: .1em solid black;
+    align-items: center;
+
+    margin: 1em 0;
+    
+}
+
+
+.film > *{
+    margin: .5em 0;
+}
+
+.film img{
+    object-fit: cover;
+}
+
+.film p {
+    text-align: center;
+    padding: 0 .5em;
+}
+
