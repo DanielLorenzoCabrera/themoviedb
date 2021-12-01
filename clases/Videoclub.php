@@ -1,6 +1,11 @@
 <?php
 
 /*
+    ENLACE PARA CONSULTAR INFORMACION DE UNA PELICULA
+    https://api.themoviedb.org/3/movie/512195?api_key=0bd8a8eb5c3993fd33872f75979674ff&language=es
+
+
+
     cURL -< Client URL
     curl_init() -> Inicializa una nueva sesión y devuelve un objecto cURL handle para usar en las funciones curl_setopt(), curl_exec(), and curl_close().
     curl_setopt($handle,int $option, value) -> Establece las opciones de la conexion curl (int son variables ya creadas en php)
@@ -36,15 +41,49 @@
         public function mostrarPeliculas(){
             foreach($this->resultados as $pelicula){
                 echo "<div class='film'>";
+                echo "<a href='index.php?id={$pelicula['id']}'>";
                 echo "<img src='https://image.tmdb.org/t/p/w185{$pelicula['poster_path']}'>";
+                echo "</a>";
                 echo "<p>{$pelicula["original_title"]}</p>";
                 echo "</div>";
             }
         }
 
+        public function mostrarInformacionPelicula($url_pelicula){
+            $peticion = curl_init($url_pelicula);
+            curl_setopt($peticion, CURLOPT_RETURNTRANSFER, true);
+            $datos = json_decode(curl_exec($peticion), true);
+            
+            echo "<div class='film-info'>";
+            echo "<figure><img src='https://image.tmdb.org/t/p/w185{$datos['poster_path']}'></figure>";
+            echo "<h2>{$datos['original_title']}</h2>";
+            echo "<p class='descripcion'>{$datos['overview']}</p>";
+            echo "<article class='generos'>";
+            foreach($datos['genres'] as $genero){
+                echo $genero['name'];
+            }
+            echo "</article>";
+            echo "<article class='actores'>";
+            foreach($datos[])
+            echo "</article>";
+            echo "</div>";
+
+        
+            
+
+/*
+            echo "<div class='film-info'>";
+            echo "<img src='https://image.tmdb.org/t/p/w185{$pelicula['poster_path']}'>";
+            echo "</a>";
+            echo "<p>{$pelicula["original_title"]}</p>";
+            echo "</div>";
+        }
 
 
+*/
 
+
+    }
 
     }
 
@@ -55,7 +94,7 @@
 /*
     foreach($videoclub->resultados as $clave => $resultado){
         echo "<div>";
-        echo "<img src='https://image.tmdb.org/t/p/w185{$resultado['poster_path']}'>";ñ
+        echo "<img src='https://image.tmdb.org/t/p/w185{$resultado['poster_path']}'>";
         echo "<p>{$resultado['original_title']}</p>";
         echo "</div>";
     }
