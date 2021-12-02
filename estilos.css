@@ -5,6 +5,19 @@
 }
 
 
+header{
+    padding: 1em 0;
+    background-color: darkcyan;
+}
+
+header a{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-decoration: none;
+    margin: 1em;
+}
+
 main{
     display: flex;
     flex-flow: row wrap;
@@ -37,3 +50,19 @@ main{
     padding: 0 .5em;
 }
 
+.actor-info{
+    display: flex;
+    flex-direction: row wrap;
+    margin: 2em 0;
+}
+
+.actor-info section{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 0 1em;
+}
+
+.actor-info section > *{
+    margin: .5em 0;
+}

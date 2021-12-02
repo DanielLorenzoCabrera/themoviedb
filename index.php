@@ -11,6 +11,7 @@
     
 </head>
 <body>
+    <header><a href="index.php">TodoPelis</a></header>
     <main>
         <?php include_once 'controlador.php';?>
 
