@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
+
+
 
 
 header{
@@ -29,11 +35,17 @@ main{
     display: flex;
     flex-flow: column nowrap;
     width: 250px;
-    outline: .1em solid black;
     align-items: center;
-
+    color: darkcyan;
     margin: 1em 0;
+    height: 300px;
+    justify-content: space-between;
+    background-color: red;
     
+}
+
+.film a {
+    text-decoration: none;
 }
 
 
@@ -81,4 +93,68 @@ nav form{
 
 nav form > *{
     margin: 0 .5em;
+}
+
+
+
+
+.film-info{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1024px;
+    margin: 2em 0;
+}
+
+.film-info figure{
+    flex: 1 1 300px;
+    
+    text-align: center;
+}
+
+.descripcion {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 5 1 300px;
+    justify-content: center;
+}
+
+.descripcion > * {
+    margin: .5em 0;
+}
+
+.generos{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    font-weight: bolder;
+    color:darkcyan ;
+}
+
+.actores{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.actores h3{
+    width: 100%;
+    text-align: center;
+}
+
+.actor{
+    margin: 1em 2em;
+    text-align: center;
+}
+
+
+.actor a{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100px;
+    text-decoration: none;
+}
+
+.actor img{
+    margin: .5em 0;
 }

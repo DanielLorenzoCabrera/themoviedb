@@ -47,8 +47,8 @@
                 echo "<div class='film'>";
                 echo "<a href='index.php?id_pelicula={$pelicula['id']}'>";
                 echo "<img src='https://image.tmdb.org/t/p/w185{$pelicula['poster_path']}'>";
-                echo "</a>";
                 echo "<p>{$pelicula["original_title"]}</p>";
+                echo "</a>";
                 echo "</div>";
             }
         }
@@ -62,15 +62,19 @@
             $actores = $this->hacerPeticion($url_actores);
             echo "<div class='film-info'>";
             echo "<figure><img src='https://image.tmdb.org/t/p/w185{$datos['poster_path']}'></figure>";
+
+            echo "<section class='descripcion'>";
             echo "<h2>{$datos['original_title']}</h2>";
-            echo "<p class='descripcion'>{$datos['overview']}</p>";
+            echo "<p>{$datos['overview']}</p>";
             echo "<article class='generos'>";
             $this->mostrarGeneros($datos['genres'],"name");
             echo "</article>";
+            echo "</section>";
+            echo "</div>";
             echo "<article class='actores'>";
+            echo "<h3>Actores</h3>";
             $this->mostrarActores($actores['cast']);
             echo "</article>";
-            echo "</div>";
     }
 
 
