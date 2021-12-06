@@ -84,15 +84,13 @@
         echo "<article class='actor-info'>";
         echo "<figure><img src='https://image.tmdb.org/t/p/w185{$datos_actor['profile_path']}'></figure>";
         echo "<section>";
-        echo "<p>Nombre : {$datos_actor['name']}</p>";
-        echo "<p>Desempeño : {$datos_actor['known_for_department']}";
-        echo "<p>Fecha de nacimiento : {$datos_actor['birthday']}";
-        echo "<p>Lugar de nacimiento : {$datos_actor['place_of_birth']}";
+        echo "<p><span>Nombre</span> : {$datos_actor['name']}</p>";
+        echo "<p><span>Desempeño</span> : {$datos_actor['known_for_department']}";
+        echo "<p><span>Fecha de nacimiento</span> : {$datos_actor['birthday']}";
+        echo "<p><span>Lugar de nacimiento</span> : {$datos_actor['place_of_birth']}";
         echo "</section>";
         echo "</article>";
     }
-
-
 
 
 

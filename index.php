@@ -44,6 +44,11 @@
 
 
     </main>
+    <footer>
+        <p>Trabajo realizado por <span>Daniel Lorenzo Cabrera</span></p>
+        <p>2º Desarrollo de Aplicaciones Web </p>
+        <span>Desarrollo web entorno servidor</span>
+    </footer>
     
 </body>
 </html>
